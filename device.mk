@@ -13,10 +13,10 @@
 # limitations under the License.
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/htc/m7vzw/m7vzw-vendor.mk)
+$(call inherit-product-if-exists, vendor/htc/m7wlj/m7wlj-vendor.mk)
 
 # Inherit from m7-common
 $(call inherit-product, device/htc/m7-common/m7-common.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/htc/m7vzw/overlay
+DEVICE_PACKAGE_OVERLAYS += device/htc/m7wlj/overlay

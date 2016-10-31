@@ -15,12 +15,12 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from m7vzw device
-$(call inherit-product, device/htc/m7vzw/device.mk)
+# Inherit from m7wlj device
+$(call inherit-product, device/htc/m7wlj/device.mk)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_BRAND := htc
-PRODUCT_DEVICE := m7vzw
+PRODUCT_DEVICE := m7wlj
 PRODUCT_MANUFACTURER := HTC
-PRODUCT_MODEL := One
-PRODUCT_NAME := full_m7vzw
+PRODUCT_MODEL := J One
+PRODUCT_NAME := full_m7wlj

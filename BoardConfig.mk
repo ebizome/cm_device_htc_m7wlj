@@ -25,44 +25,59 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
+LOCAL_PATH := $(call my-dir)
+
 # inherit from common m7-common
 -include device/htc/m7-common/BoardConfigCommon.mk
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := m7wlv,m7vzw
+TARGET_OTA_ASSERT_DEVICE := m7wlj
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := m7wlv
+TARGET_BOOTLOADER_BOARD_NAME := m7wlj
+
+# Kernel
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+TARGET_KERNEL_CONFIG := m7wlj_defconfig
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 
 # cat /proc/emmc:
 # dev:        size     erasesize name
 # mmcblk0p19: 000ffa00 00000200 "misc"
-# mmcblk0p34: 00fffe00 00000200 "recovery"
-# mmcblk0p33: 01000000 00000200 "boot"
-# mmcblk0p35: 8bfffc00 00000200 "system"
+# mmcblk0p37: 00fffe00 00000200 "recovery"
+# mmcblk0p36: 01000000 00000200 "boot"
+# mmcblk0p38: 8bfffc00 00000200 "system"
 # mmcblk0p26: 00140200 00000200 "local"
-# mmcblk0p36: 2ffffe00 00000200 "cache"
-# mmcblk0p37: 660000000 00000200 "userdata"
+# mmcblk0p39: 17fffe00 00000200 "cache"
+# mmcblk0p40: 678000000 00000200 "userdata"
 # mmcblk0p22: 01400000 00000200 "devlog"
 # mmcblk0p24: 00040000 00000200 "pdata"
 # mmcblk0p27: 00010000 00000200 "extra"
-# mmcblk0p31: 04b00200 00000200 "radio"
+# mmcblk0p34: 04b00200 00000200 "radio"
 # mmcblk0p16: 03c00400 00000200 "adsp"
 # mmcblk0p15: 00100000 00000200 "dsps"
 # mmcblk0p17: 007ffa00 00000200 "radio_config"
 # mmcblk0p20: 00400000 00000200 "modem_st1"
 # mmcblk0p21: 00400000 00000200 "modem_st2"
+# mmcblk0p29: 00040000 00000200 "skylink"
+# mmcblk0p30: 01900000 00000200 "carrier"
 # mmcblk0p28: 00100000 00000200 "cdma_record"
 # mmcblk0p18: 02000000 00000200 "reserve_1"
-# mmcblk0p30: 034ffa00 00000200 "reserve_2"
-# mmcblk0p32: 05fffc00 00000200 "reserve_3"
-# mmcblk0p29: 06069e00 00000200 "reserve"
+# mmcblk0p33: 034ffa00 00000200 "reserve_2"
+# mmcblk0p35: 05fffc00 00000200 "reserve_3"
+# mmcblk0p31: 01400000 00000200 "nfc_record"
+# mmcblk0p32: 03329800 00000200 "reserve"
 
 # Filesystem
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_CACHEIMAGE_PARTITION_SIZE := 805305856
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2348809216
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 27380416512
+BOARD_CACHEIMAGE_PARTITION_SIZE := 671088128
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1946156032
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 27917287424
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
+BOARD_FLASH_BLOCK_SIZE := 131072
 
 # inherit from the proprietary version
--include vendor/htc/m7vzw/BoardConfigVendor.mk
+-include vendor/htc/m7wlj/BoardConfigVendor.mk
